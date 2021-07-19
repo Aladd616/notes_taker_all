@@ -1,3 +1,4 @@
+const { Console } = require('console');
 const { json } = require('express');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
@@ -25,10 +26,22 @@ module.exports = (app) => {
              Notes.push(newNote);
              fs.writeFileSync('.db/db.json', JSON.stringify(Notes));
 
+             console.log("note written")
+
         res.json(data);
     });
 
     app.delete('/api/notes:id', (req, res) => { 
+        let note_ID = request.params.id.toString();
+        Console.log("ID", note_ID);
+
+        let Notes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+
+        const keep_data = data.filter( )
+
+        fs.writeFileSync('.db/db.json', JSON.stringify(keep_data));
+
+
 
     })
 }
