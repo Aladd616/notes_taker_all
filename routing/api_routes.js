@@ -17,23 +17,26 @@ let notes = require("../db/db.json")
     });
 
     app.post('/api/notes', (req, res) => {
-           let new_Note = req.body;
+           const newNote = req.body;
 
-             new_Note.id = generateUniqueID();
+             newNote.id = generateUniqueID({
+                 length: 10,
+                 useLetters: true
+             });
 
              console.log("note taken");
 
-             let Notes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+            //  let Notes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
 
-             notes.push(new_Note);
-             fs.writeFile('.db/db.json', JSON.stringify(notes,'\t'), err => {
+             notes.push(newNote);
+             fs.writeFile('.db/db.json', JSON.stringify(notes), err => {
                  if (err) throw err;
                  return true;
              });
 
              console.log("note written")
 
-        res.json(Notes);
+        res.json(notes);
     });
 
     app.delete('/api/notes:id', (req, res) => { 
