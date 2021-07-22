@@ -7,10 +7,13 @@
 [Heroku](https://still-stream-17322.herokuapp.com/)
 
 ## Description
-This application is designed to allow the user quickly create and manage user created notes.  Uses Express to save and retrieve data from previously made notes that were previously saved as in the form of JSON.  
+This application is designed to allow the user quickly create and manage user created notes.  This application uses Express to save and retrieve data from notes that were previously typed by the user and saved as JSON.  
 
 ## ScreenShots
-
+![Image](/Develop\Assets\note_taker_landing.png)
+![Image](/Develop\Assets\Intial_notes_page.png)
+![Image](/Develop\Assets\Test_note_text.png)
+![Image](/Develop\Assets\Functionality.png)
 ## Instillation
 clone the application from GitHub.
 Then run "npm install" to install the dependencies.
