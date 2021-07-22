@@ -9,6 +9,8 @@
 ## Description
 This application is designed to allow the user quickly create and manage user created notes.  Uses Express to save and retrieve data from previously made notes that were previously saved as in the form of JSON.  
 
+## ScreenShots
+
 ## Instillation
 clone the application from GitHub.
 Then run "npm install" to install the dependencies.

@@ -37,7 +37,7 @@ let notes = require("../db/db.json")
     });
 
     app.delete('/api/notes:id', (req, res) => { 
-        let note_ID = request.params.id.toString();
+        let note_ID = req.params.id.toString();
         Console.log("ID", note_ID);
 
         let Notes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
