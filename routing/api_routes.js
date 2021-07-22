@@ -1,34 +1,39 @@
 const { Console } = require('console');
 const { json } = require('express');
 const fs = require('fs');
-const { v4: uuidv4 } = require('uuid');
+const generateUniqueId = require('generate-unique-id');
 
 module.exports = (app) => {
-
+let notes = require("../db/db.json")
 
     app.get('/api/notes', (req, res) => {
         console.log("notes request");
 
         let Notes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
 
-        console.log("retrieved note" + json.stringify(Notes));
+        console.log("retrieved note");
 
         res.json(Notes);
     });
 
     app.post('/api/notes', (req, res) => {
-           const new_Note = req.body;
+           let new_Note = req.body;
 
-             new_Note.id = uuidv4();
+             new_Note.id = generateUniqueID();
+
+             console.log("note taken");
 
              let Notes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
 
-             Notes.push(newNote);
-             fs.writeFileSync('.db/db.json', JSON.stringify(Notes));
+             notes.push(new_Note);
+             fs.writeFile('.db/db.json', JSON.stringify(notes,'\t'), err => {
+                 if (err) throw err;
+                 return true;
+             });
 
              console.log("note written")
 
-        res.json(data);
+        res.json(Notes);
     });
 
     app.delete('/api/notes:id', (req, res) => { 
